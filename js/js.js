@@ -22,8 +22,6 @@ input.mouseY.range = input.mouseY.end - input.mouseY.start;
 
 
 
-
-
 // This is an output set up
 var output = {
   x: {
@@ -49,7 +47,7 @@ var handleMouseMove = function (event) {
   input.mouseY.fraction = (input.mouseY.current - input.mouseY.start) / input.mouseY.range;
 // connect input to ouput
 // output x
-output.x.current = output.x.start + (input.mouseX.fraction * output.x.range)
+output.x.current = output.x.end - (input.mouseX.fraction * output.x.range)
 
 //apply output to html
 pupilsArray.forEach(function(pupil, k){
