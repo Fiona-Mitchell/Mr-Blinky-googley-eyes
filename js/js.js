@@ -15,4 +15,10 @@ var handleMouseMove = function (event) {
   console.log('fraction', input.mouseX.fraction)
 }
 
+var handleResize = function () {
+  input.mouseX.end = window.innerWidth;
+  input.mouseX.range = input.mouseX.end - input.mouseX.start;
+}
+
 window.addEventListener('mousemove', handleMouseMove)
+window.addEventListener('resize', handleResize)
