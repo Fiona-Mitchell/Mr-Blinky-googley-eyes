@@ -14,6 +14,7 @@ body{
   top: 50%;
   margin-top: -100px;
   margin-left: -100px;
+  overflow: hidden;
 }
 
 .pupil{
@@ -34,7 +35,7 @@ body{
 }
 
 .eye2{
-  margin-left: 100px;
+  margin-left: -100px;
 }
 
 .eye3{

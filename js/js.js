@@ -1,4 +1,7 @@
-// This allows the console to follow your mouse
+// html setup
+var pupilsHTMLColletion = document.getElementsByClassName('pupil');
+var pupilsArray = Array.from(pupilsHTMLColletion);
+
 
 var input = {
   mouseX: {
@@ -24,8 +27,8 @@ input.mouseY.range = input.mouseY.end - input.mouseY.start;
 // This is an output set up
 var output = {
   x: {
-  start: -100,
-  end: 100,
+  start: -90,
+  end: 90,
   current: 0,
 },
   y: {},
@@ -45,9 +48,16 @@ var handleMouseMove = function (event) {
   input.mouseY.current = event.clientY;
   input.mouseY.fraction = (input.mouseY.current - input.mouseY.start) / input.mouseY.range;
 // connect input to ouput
+// output x
 output.x.current = output.x.start + (input.mouseX.fraction * output.x.range)
 
-console.log('output.x.current', output.x.current)
+//apply output to html
+pupilsArray.forEach(function(pupil, k){
+  pupil.style.transform = 'translateX('+output.x.current+'px)';
+});
+
+
+// console.log('output.x.current', output.x.current)
 // console.log('fractionY', input.mouseY.fraction)}
 }
 
