@@ -29,12 +29,16 @@ var output = {
   end: 90,
   current: 0,
 },
-  y: {},
+  y: {
+    start: -90,
+    end: 90,
+    current: 0,
+  },
 };
 
 // This is output set up
 output.x.range = output.x.end - output.x.start;
-output.x.range = output.x.end - output.x.start;
+output.y.range = output.y.end - output.y.start;
 
 
 
@@ -45,13 +49,18 @@ var handleMouseMove = function (event) {
 // mouse y input
   input.mouseY.current = event.clientY;
   input.mouseY.fraction = (input.mouseY.current - input.mouseY.start) / input.mouseY.range;
+
 // connect input to ouput
+
 // output x
-output.x.current = output.x.end - (input.mouseX.fraction * output.x.range)
+output.x.current = output.x.start + (input.mouseX.fraction * output.x.range)
+
+// output y
+output.y.current = output.y.start + (input.mouseY.fraction * output.y.range)
 
 //apply output to html
 pupilsArray.forEach(function(pupil, k){
-  pupil.style.transform = 'translateX('+output.x.current+'px)';
+  pupil.style.transform = 'translate('+output.x.current+'px, '+output.y.current+'px)';
 });
 
 
