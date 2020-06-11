@@ -54,13 +54,24 @@ var handleMouseMove = function (event) {
 
 // output x
 output.x.current = output.x.start + (input.mouseX.fraction * output.x.range)
+output.x.opposite = output.x.end - (input.mouseX.fraction * output.x.range)
+output.x.inverse = output.x.end - (input.mouseX.fraction * output.x.range)
 
 // output y
 output.y.current = output.y.start + (input.mouseY.fraction * output.y.range)
+output.y.opposite = output.y.end - (input.mouseY.fraction * output.y.range)
+output.y.inverse = output.y.end - (input.mouseY.fraction * output.y.range)
 
 //apply output to html
 pupilsArray.forEach(function(pupil, k){
-  pupil.style.transform = 'translate('+output.x.current+'px, '+output.y.current+'px)';
+
+if (k === 0){
+    pupil.style.transform = 'translate('+output.x.current+'px, '+output.y.current+'px)';
+} else {
+    pupil.style.transform = 'translate('+output.x.opposite+'px, '+output.y.opposite+'px)';
+
+}
+
 });
 
 
