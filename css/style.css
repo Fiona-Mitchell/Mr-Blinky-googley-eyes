@@ -9,3 +9,12 @@ body{
   width: 100px;
   height: 100vh;
 }
+
+.block2{
+  background-color: yellow;
+  width: 200px;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

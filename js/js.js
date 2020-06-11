@@ -1,7 +1,7 @@
 var input = {
   mouseX: {
     start: 100,
-    end: window.innerWidth,
+    end: window.innerWidth -200,
     current: 0,
   },
   MouseY: {}
@@ -16,7 +16,7 @@ var handleMouseMove = function (event) {
 }
 
 var handleResize = function () {
-  input.mouseX.end = window.innerWidth;
+  input.mouseX.end = window.innerWidth -200;
   input.mouseX.range = input.mouseX.end - input.mouseX.start;
 }
 
