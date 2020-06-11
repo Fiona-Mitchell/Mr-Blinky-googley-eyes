@@ -30,12 +30,31 @@ body{
 }
 
 .pupils{
-  animation: updown 5s linear infinite;
+  animation: dialate 5s linear infinite;
+
 }
 
-@keyframes updown {
+@keyframes around-360 {
     from { transform: rotate(0deg) translateX(65px) rotate(0deg); }
     to   { transform: rotate(360deg) translateX(65px) rotate(-360deg); }
+}
+
+@keyframes sidetoside {
+    0% { transform: translateX(65px) translateY(25px); }
+    50% { transform: translateX(0px) translateY(75px); }
+    100%  { transform: translateX(-65px) translateY(25px); }
+}
+
+@keyframes halfwayaround {
+    0%, 1% { transform: rotate(0deg) translateX(65px) rotate(0deg); }
+    50%   { transform: rotate(180deg) translateX(65px) rotate(-180deg); }
+    99%, 100% { transform: rotate(0deg) translateX(65px) rotate(0deg); }
+}
+
+@keyframes dialate {
+    0%, 1% { transform:scale(0.8); }
+    50%   { transform:scale(1.2); }
+    99%, 100% { transform:scale(0.8); }
 }
 
 
@@ -49,4 +68,27 @@ body{
 
 .eye3{
   margin-left: 100px;
+}
+
+.eyelid {
+  content: "";
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -200px;
+  margin-left: -100px;
+  background-color: #ffb700;
+  animation: blink 14s ease-in infinite;
+  perspective: 200px;
+  z-index: 1;
+}
+
+
+@keyframes blink {
+  0%, 45% {transform: rotateX(70deg) translateY(0px);}
+  50% {transform: rotatex(0deg) translateY(100px);}
+  55%, 100% {transform: rotatex(70deg) translateY(0px);}
 }
