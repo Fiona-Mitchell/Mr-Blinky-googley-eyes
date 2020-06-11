@@ -1,6 +1,6 @@
 var input = {
   mouseX: {
-    start: 0,
+    start: 100,
     end: window.innerWidth,
     current: 0,
   },
